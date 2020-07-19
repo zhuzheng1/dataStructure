@@ -1,4 +1,5 @@
 package com.linkedlist.demo;
+
 public class DemoLinkedList {
 	
 	class Node{
@@ -24,15 +25,15 @@ public class DemoLinkedList {
 		else {
 			while(tmp.nextNode != null){
 			tmp = tmp.nextNode;
-			count++;
 			}
 			tmp.nextNode = newRoot;
+			count++;
 		}
 	}
 	
 	public void printNode(){
 		
-		nodeData = new String[count+1];
+		nodeData = new String[count];
 		
 		if(node == null) {
 			throw new NullPointerException("链表为空，请添加数据！");
@@ -72,7 +73,7 @@ public class DemoLinkedList {
 		d1.add("10");
 		d1.add("13");
 		d1.add("1");
-//		d1.add("42");
+		d1.add("42");
 		d1.printNode();
 		
 	}
