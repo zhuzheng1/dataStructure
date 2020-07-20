@@ -1,21 +1,22 @@
 package com.linkedlist.demo;
 
-public class DemoLinkedList {
+public class DemoLinkedList<T> {
 	
 	class Node{
-		String data;
+		T data;
 		Node nextNode;
 		
-		public Node(String data){
+		public Node(T data){
 			this.data = data;
 		}
 	}
 	
 	private Node node=null;
 	private int count = 0;;
-	private String[] nodeData;
+	private T[] nodeData;
 	
-	public void add(String data){
+	public void add(T data){
+		
 		Node newRoot = new Node(data);
 		Node tmp = node;
 		if(node == null) {
@@ -31,9 +32,10 @@ public class DemoLinkedList {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	public void printNode(){
-		
-		nodeData = new String[count];
+
+		nodeData = (T[])new Object[count];
 		
 		if(node == null) {
 			throw new NullPointerException("链表为空，请添加数据！");
@@ -69,12 +71,19 @@ public class DemoLinkedList {
 	}
 	
 	public static void main(String[] args) throws Exception{
-		DemoLinkedList d1 = new DemoLinkedList();
+		DemoLinkedList<String> d1 = new DemoLinkedList<>();
 		d1.add("10");
 		d1.add("13");
 		d1.add("1");
 		d1.add("42");
 		d1.printNode();
+		
+		DemoLinkedList<Long> d2 = new DemoLinkedList<>();
+		d2.add(1100000000000L);
+		d2.add(2200000000000L);
+		d2.add(3300000000000L);
+		d2.add(4400000000000L);
+		d2.printNode();
 		
 	}
 }
