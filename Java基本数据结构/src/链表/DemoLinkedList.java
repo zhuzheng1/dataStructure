@@ -1,4 +1,4 @@
-package com.linkedlist.demo;
+package Á´±í;
 
 public class DemoLinkedList<T> {
 	
