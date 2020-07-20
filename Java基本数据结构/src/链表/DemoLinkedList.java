@@ -5,6 +5,7 @@ public class DemoLinkedList<T> {
 	class Node{
 		T data;
 		Node nextNode;
+		Node backNode;
 		
 		public Node(T data){
 			this.data = data;
@@ -28,6 +29,7 @@ public class DemoLinkedList<T> {
 			tmp = tmp.nextNode;
 			}
 			tmp.nextNode = newRoot;
+			tmp.nextNode.backNode = tmp;
 			count++;
 		}
 	}
