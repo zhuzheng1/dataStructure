@@ -38,23 +38,20 @@ public class MyArrayStack<T> {
 	
 	public T pop(){
 		if(top == -1) {
-			throw new NullPointerException("Õ»Îª¿Õ£¡");
+		throw new NullPointerException("Õ»Îª¿Õ£¡");
 		}
 		else {
 			T data = arrayStack[top];
 			int addLength = count-1;
 			arrayStack =  Arrays.copyOf(arrayStack, addLength);
 			count--;
+			top--;
 			return data;
 		}
 	}
 	
 	public boolean isEmpty(){
 		return top == -1;
-	}
-	
-	public boolean isFull(){
-		return count == STACK_DEFAULT_VALUE;
 	}
 	
 	public int size(){
