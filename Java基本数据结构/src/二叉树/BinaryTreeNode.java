@@ -4,8 +4,6 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.omg.CosNaming.NamingContextPackage.NotFound;
-
 
 public class BinaryTreeNode {
 
@@ -17,7 +15,7 @@ public class BinaryTreeNode {
     private boolean existence = false;  //删除节点的判断条件
     
     
-    class Node {
+    class Node {  //创建节点类
         Node lNode;
         Node rNode;
         Node pNode = null;
@@ -35,7 +33,7 @@ public class BinaryTreeNode {
     }
     
     public void add(int data) {
-        if(count >= DEFAULT_ARRAY_CAPACITY_VALUE) {
+        if(count >= DEFAULT_ARRAY_CAPACITY_VALUE) {  //为数组扩容
             int newCount = count+1;
             array = Arrays.copyOf(array, newCount);
         }
@@ -45,7 +43,7 @@ public class BinaryTreeNode {
           creatBinaryConnection(index,count);  //此处函数只调用成员变量index
     }
     
-    public void creatBinaryConnection(int index, int arrayLength) {
+    public void creatBinaryConnection(int index, int arrayLength) { //创建二叉树关系
         
         if(nodeList.get(index).lNode != null && nodeList.get(index).rNode != null) {
             ++index;
@@ -110,6 +108,10 @@ public class BinaryTreeNode {
         return count == 0;
     }
     
+    /*
+     * 删除节点
+     * 节点数据不存在则报错，无法删除
+     */
     public void remove(int data) {
         for (int i = 0; i < nodeList.size(); i++) {
             if(data == nodeList.get(i).data) {
@@ -150,8 +152,9 @@ public class BinaryTreeNode {
         demo.add(8);
         demo.add(66);
         
-//        demo.remove(12);
+          demo.remove(12);
 //        demo.remove(23);
+//        demo.remove(99);
         
         //获取根节点
         Node root = nodeList.get(0);
